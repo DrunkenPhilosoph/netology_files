@@ -44,8 +44,7 @@ def get_shop_list_by_dishes(dish_list, count_person):
     return ingridient_dict
 
 
-# print(book_to_dict('recipes.txt'))
-# print(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 1))
+
 
 def sort_text(foler_path, result):
     list_files = os.listdir(foler_path)
@@ -55,7 +54,6 @@ def sort_text(foler_path, result):
             len_string = len(f.readlines())
             file_lenght[file] = len_string
     sorted_file_lenght = dict(sorted(file_lenght.items(), key=lambda item: item[1]))
-    print(sorted_file_lenght)
     with open(f'{result}.txt', 'a', encoding='utf-8') as file_write:
         for file in sorted_file_lenght.items():
             file_write.write(f"{str(file[0])}\n{str(file[1])}\n")
@@ -68,4 +66,7 @@ def sort_text(foler_path, result):
         #     with open(f'sorted/{file}', 'r', encoding='utf-8') as f:
         #         for line
 
+
+print(book_to_dict('recipes.txt'))
+print(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 1))
 sort_text('sorted', 'result')
